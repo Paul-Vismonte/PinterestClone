@@ -4,10 +4,10 @@ void main(){
   runApp(CupertinoApp(
     theme: CupertinoThemeData(
       brightness: Brightness.dark
-    ), //CupertinoThereData
+    ),
     debugShowCheckedModeBanner: false,
     home: MyApp(),
-  )); //CupertinoApp
+  ));
 }
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -47,7 +47,6 @@ class _MyAppState extends State<MyApp> {
               setState(() {
                 hidePassword = !hidePassword;
               });
-
 
             }),
 
