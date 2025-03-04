@@ -17,6 +17,19 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  TextEditingController _username = TextEditingController();
+  TextEditingController _password = TextEditingController();
+  bool hidePassword = true;
+  String error ="";
+
+  bool isLogin(String username, String password) {
+    if (username == "admin" && password =="123"){
+      return true;
+    }else {
+      return false;
+    }
+
+  }
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(child: Padding(
@@ -26,7 +39,7 @@ class _MyAppState extends State<MyApp> {
           SizedBox(height: 200,),
           Row(
             children: [
-              Text('Pinterest', style: TextStyle(color: CupertinoColors.systemPink, fontWeight: FontWeight.bold, fontSize: 25),),
+              Text('Pinterest', style: TextStyle(color: CupertinoColors.systemOrange, fontWeight: FontWeight.bold, fontSize: 25),),
             ],
           ),
           SizedBox(height: 20,),
@@ -43,7 +56,7 @@ class _MyAppState extends State<MyApp> {
             placeholder: "Password",
             padding: EdgeInsets.all(10),
             obscureText: hidePassword,
-            suffix: CupertinoButton(child: Icon(hidePassword? CupertinoIcons.eye_slash : CupertinoIcons.eye, size: 20, color: CupertinoColors.systemOrange,), onPressed: (){
+            suffix: CupertinoButton(child: Icon(hidePassword? CupertinoIcons.eye : CupertinoIcons.eye_slash, size: 20, color: CupertinoColors.systemOrange,), onPressed: (){
               setState(() {
                 hidePassword = !hidePassword;
               });
@@ -51,12 +64,12 @@ class _MyAppState extends State<MyApp> {
             }),
 
           ),
-          SizedBox(height: 20,),
+          SizedBox(height: 15,),
           Container(
             width: double.maxFinite,
             decoration: BoxDecoration(
 
-                color: CupertinoColors.systemOrange
+                color: CupertinoColors.systemRed
             ),
             child: CupertinoButton(child: Text('Login', style: TextStyle(color: CupertinoColors.white),), onPressed: (){
               isLogin(_username.text, _password.text) ?
@@ -75,6 +88,6 @@ class _MyAppState extends State<MyApp> {
         ],
       )),
     ));
-  }i
+  }
 }
 
